@@ -1,7 +1,6 @@
 const express = require('express');
 const { WebcastPushConnection } = require('tiktok-live-connector');
 const app = express();
-const PORT = process.env.PORT || 8080;
 
 app.get('/api/live/:username', async (req, res) => {
     const tiktokLiveConnection = new WebcastPushConnection(req.params.username);
@@ -18,4 +17,4 @@ app.get('/api/live/:username', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => console.log(`API Sunucusu ${PORT} portunda aktif.`));
+module.exports = app;
